@@ -1,0 +1,25 @@
+<div class="container">
+  <table class="table table-responsive table-hover">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>Email</th>
+        <th>Phone</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @clients.each do |client| %>
+        <tr>
+          <td><%= client.id %></td>
+          <td><%= client.name %></td>
+          <td><%= client.surname %></td>
+          <td><%= client.email %></td>
+          <td><%= client.phone %></td>
+          <td><%= link_to "View", show_client_path(client), class: "btn btn-default" %></td>
+        </tr>
+        <% end %>
+    </tbody>
+  </table>
+</div>

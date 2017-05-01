@@ -1,0 +1,2 @@
+class RepairStatusesController < ApplicationController
+end

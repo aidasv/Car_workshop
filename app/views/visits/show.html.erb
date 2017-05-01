@@ -1,0 +1,25 @@
+<div class="container">
+  <table class="table table-responsive table-hover">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Worker</th>
+        <th>Current Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @services.each do |service| %>
+        <tr>
+          <td><%= service.id %></td>
+          <td><%= service.name %></td>
+          <td><%= service.description %></td>
+          <td><%= "#{Worker.find(service.worker_id).name}, #{Worker.find(service.worker_id).surname}"  %></td>
+          <td><%= service.repair_statuses.last.name %></td>
+          
+        </tr>
+        <% end %>
+    </tbody>
+  </table>
+</div>

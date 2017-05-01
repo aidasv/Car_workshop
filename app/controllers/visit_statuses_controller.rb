@@ -1,0 +1,2 @@
+class VisitStatusesController < ApplicationController
+end

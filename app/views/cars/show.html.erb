@@ -1,0 +1,27 @@
+<div class="container">
+  <table class="table table-responsive table-hover">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>End Date</th>
+        <th>Return</th>
+        <th>Mileage</th>
+        <th>Current Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @visits.each do |visit| %>
+        <tr>
+          <td><%= visit.id %></td>
+          <td><%= visit.name %></td>
+          <td><%= visit.end_date %></td>
+          <td><%= visit.return_date %></td>
+          <td><%= visit.mileage %></td>
+          <td><%= visit.visit_statuses.last.name %></td>
+          <td><%= link_to "Services", show_visit_path(visit), class: "btn btn-default" %></td>
+        </tr>
+        <% end %>
+    </tbody>
+  </table>
+</div>

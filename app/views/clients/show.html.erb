@@ -1,0 +1,38 @@
+<div class="container">
+  <table class="table table-responsive table-hover">
+    <thead>
+      <tr>
+        <th>Make</th>
+        <th>Model</th>
+        <th>Production Year</th>
+        <th>License Plate</th>
+        <th>Vin Code</th>
+        <th>Body Type</th>
+        <th>Cubic Capacity</th>
+        <th>Power</th>
+        <th>Fuel</th>
+        <th>Color</th>
+        <th>TA date</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <% @cars.each do |car| %>
+      <tr>
+        <td><%= car.make %></td>
+        <td><%= car.model %></td>
+        <td><%= car.production_year %></td>
+        <td><%= car.license_plate %></td>
+        <td><%= car.vin_code %></td>
+        <td><%= car.body_type %></td>
+        <td><%= car.cubic_capacity %></td>
+        <td><%= car.power %></td>
+        <td><%= car.fuel %></td>
+        <td><%= car.color %></td>
+        <td><%= car.ta_date %></td>
+        <td><%= link_to "View", show_car_path(car), class: "btn btn-default" %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
