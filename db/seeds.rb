@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-100.times do
+10.times do
   name = %w(Jonas Petras Antanas Jurgis Pranas Gedgaudas Andrius Ramunas).sample
   surname = %w(Karbauskis Tapinas Renovacijus Kontautas Teslagalvijus).sample
   email = "#{name}.#{surname}#{rand(10000..99999)}@example.com"
@@ -34,10 +34,13 @@ end
 
 Car.all.each do |car|                           
   5.times do
+    client_id = car.client_id
+
     car.visits.create(name: "#{%w(Aptarnavimas, Bilda važiuoklė, Nesisuka ratai, Pasiruošimas TA ).sample}",
                       end_date: Time.now - rand(10..15).days,
                       return_date: Time.now + rand(5..10).days,
-                      mileage: rand(100..1234567))
+                      mileage: rand(100..1234567),
+                      client_id: client_id)
   end    
 end
 
