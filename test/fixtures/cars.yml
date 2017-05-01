@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  make: MyString
+  model: MyString
+  production_year: MyString
+  license_plate: MyString
+  vin_code: MyString
+  body_type: MyString
+  cubic_capacity: MyString
+  power: MyString
+  fuel: MyString
+  color: MyString
+  ta_date: 2017-04-24
+
+two:
+  make: MyString
+  model: MyString
+  production_year: MyString
+  license_plate: MyString
+  vin_code: MyString
+  body_type: MyString
+  cubic_capacity: MyString
+  power: MyString
+  fuel: MyString
+  color: MyString
+  ta_date: 2017-04-24
