@@ -6,6 +6,14 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+5.times do
+  name = %w(Jonas Petras Antanas Jurgis Pranas Gedgaudas Andrius Ramunas).sample
+  surname = %w(Karbauskis Tapinas Renovacijus Kontautas Teslagalvijus).sample
+  position = %w(Meistras Saltkalvis Praktikantas Direktorius Administratore).sample
+  email = "#{name}.#{surname}#{rand(10000..99999)}@example.com"
+
+  Worker.create(name: name, surname: surname, position: position, email: email)
+end
 
 10.times do
   name = %w(Jonas Petras Antanas Jurgis Pranas Gedgaudas Andrius Ramunas).sample
@@ -59,7 +67,7 @@ Visit.all.each do |visit|
     comment: "Klientas nusiskundimų neturėjo")
   3.times do
     service = visit.services.create(name: "#{%w(Pakeisti Pareguliuoti Suremontuoti Isiimti Priklijuoti).sample} #{%w(tepalus valytuvus stikla veidrodeli varikli padangas).sample}",
-      description: "Reikia sutaisyti kažką")
+      description: "Reikia sutaisyti kažką", worker_id: rand(1..5))
 
     
   end
@@ -86,3 +94,5 @@ Service.all.each do |service|
      price: rand(10..100))
   end
 end
+
+

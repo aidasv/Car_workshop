@@ -5,7 +5,7 @@ class CreateWorkers < ActiveRecord::Migration[5.0]
       t.string :surname
       t.string :position
       t.string :email
-      t.boolean :is_admin
+      t.boolean :is_admin, default: false
 
       t.timestamps
     end
