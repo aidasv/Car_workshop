@@ -1,8 +1,6 @@
 class ServicesController < ApplicationController
 
   def show 
-    @visit = Visit.find(params[:id])
-    @services = @visit.services
-    
+    @service = Service.find(params[:id])    
   end
 end

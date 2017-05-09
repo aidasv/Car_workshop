@@ -1,0 +1,74 @@
+<div class="container">
+  <h2><%= link_to "Klientai", clients_path %> /
+      <%= link_to "#{@service.visit.car.client.name} #{@service.visit.car.client.surname}", show_client_path(@service.visit.car.client) %> /
+      <%= link_to "#{@service.visit.car.make} #{@service.visit.car.model} #{@service.visit.car.license_plate}", show_car_path(@service.visit.car.client, @service.visit.car) %> /
+      <%= link_to @service.visit.created_at.to_date, show_visit_path(@service.visit.client, @service.visit.car, @service.visit) %>
+  </h2>
+  <div class="row">
+  <div class="col-md-6"> 
+  <h3> Parts </h3>
+  <table class="table table-responsive table-hover">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Code</th>
+        <th>Unit</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Sum</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @service.parts.each do |part| %>
+        <tr>
+          <td><%= part.id %></td>
+          <td><%= part.name %></td>
+          <td><%= part.code %></td>
+          <td><%= part.unit %></td>
+          <td><%= part.quantity  %></td>
+          <td>EUR <%= part.price %></td>
+          <td>EUR <%= part.price * part.quantity %></td>
+          
+        </tr>
+        <% end %>
+    </tbody>
+  </table>
+  <hr>
+  <h4 align="right"> Total Parts Price EUR <%= @service.sum_parts_price %> </h4>
+  </div>
+  <div class="col-md-6">
+  <h3> Works </h3>
+  <table class="table table-responsive table-hover">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Unit</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Sum</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @service.works.each do |work| %>
+        <tr>
+          <td><%= work.id %></td>
+          <td><%= work.name %></td>
+          <td><%= work.unit %></td>
+          <td><%= work.quantity  %></td>
+          <td>EUR <%= work.price %></td>
+          <td>EUR <%= work.price * work.quantity %></td>
+          
+        </tr>
+        <% end %>
+    </tbody>
+  </table>
+  <hr>
+  <h4 align="right"> Total Works Price EUR <%= @service.sum_works_price %> </h4>
+  </div>
+
+</div>
+
+<hr>
+<h3 align="center"> Total price EUR <%= @service.sum_works_price + @service.sum_parts_price %> </h3>

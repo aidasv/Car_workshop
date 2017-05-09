@@ -1,4 +1,9 @@
 <div class="container">
+  <h2><%= link_to "Klientai", clients_path %> /
+      <%= link_to "#{@visit.car.client.name} #{@visit.car.client.surname}", show_client_path(@visit.car.client) %> /
+      <%= link_to "#{@visit.car.make} #{@visit.car.model} #{@visit.car.license_plate}", show_car_path(@visit.car.client, @visit.car) %> /
+      <%= link_to @visit.created_at.to_date, show_visit_path(@visit.client, @visit.car, @visit) %>
+  </h2>
   <table class="table table-responsive table-hover">
     <thead>
       <tr>
@@ -15,8 +20,9 @@
           <td><%= service.id %></td>
           <td><%= service.name %></td>
           <td><%= service.description %></td>
-          <td><%= "#{Worker.find(service.worker_id).name}, #{Worker.find(service.worker_id).surname}"  %></td>
+          <td><%= "#{service.worker.name} #{service.worker.surname}"  %></td>
           <td><%= service.repair_statuses.last.name %></td>
+          <td><%= link_to "View", show_service_path(service.visit.car.client, service.visit.car, service.visit, service), class: "btn btn-default" %></td>
           
         </tr>
         <% end %>

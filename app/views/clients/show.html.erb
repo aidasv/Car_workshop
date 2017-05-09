@@ -1,4 +1,7 @@
 <div class="container">
+  <h2><%= link_to "Klientai", clients_path %> /
+      <%= link_to "#{@client.name} #{@client.surname}", show_client_path(@client) %>    
+  </h2>
   <table class="table table-responsive table-hover">
     <thead>
       <tr>
@@ -30,7 +33,7 @@
         <td><%= car.fuel %></td>
         <td><%= car.color %></td>
         <td><%= car.ta_date %></td>
-        <td><%= link_to "View", show_car_path(car), class: "btn btn-default" %></td>
+        <td><%= link_to "View", show_car_path(car.client, car), class: "btn btn-default" %></td>
       </tr>
       <% end %>
     </tbody>
