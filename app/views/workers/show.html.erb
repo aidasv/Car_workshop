@@ -1,0 +1,24 @@
+<div class="container">
+  <h2><%= link_to "Klientai", clients_path %> /
+   
+  </h2>
+  <table class="table table-responsive table-hover">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @services.each do |service| %>
+      <tr>
+        <td><%= service.name %></td>
+        <td><%= service.description %></td>
+        <td><%= service.created_at %></td>
+        <td><%= link_to "View", show_service_path(service.visit.car.client, service.visit.car, service.visit, service), class: "btn btn-default" %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

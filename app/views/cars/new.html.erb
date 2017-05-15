@@ -1,0 +1,114 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-5 center-block">
+      <div class="panel-heading">
+        <div class="panel-title text-center">
+          <h1 class="title">Naujas automobilis</h1>
+          <hr />
+        </div>
+        
+
+
+<%= form_for(@car) do |f| %>
+  <% if @car.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@car.errors.count, "error") %> prohibited this car from being saved:</h2>
+
+      <ul>
+      <% @car.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <label for="name" class="cols-sm-2 control-label">Markė</label>
+    <div class="">
+      <%= f.text_field :make, placeholder: "Markė", class: "form-control" %>
+    </div>
+  </div>
+
+    <div class="form-group">
+    <label for="name" class="cols-sm-2 control-label">Modelis</label>
+    <div class="">
+      <%= f.text_field :model, placeholder: "Modelis", class: "form-control" %>
+    </div>
+  </div>
+
+   <div class="form-group">
+    <label for="name" class="cols-sm-2 control-label">Pagaminimo metai</label>
+    <div class="">
+      <%= f.text_field :production_year, placeholder: "Pagaminimo metai", class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="name" class="cols-sm-2 control-label">Valstybinis numeris</label>
+    <div class="">
+      <%= f.text_field :license_plate, placeholder: "Valstybinis numeris", class: "form-control" %>
+    </div>
+  </div>
+
+    <div class="form-group">
+    <label for="name" class="cols-sm-2 control-label">Kėbulo numeris</label>
+    <div class="">
+      <%= f.text_field :vin_code, placeholder: "Kėbulo numeris", class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="name" class="cols-sm-2 control-label">Kėbulo tipas</label>
+    <div class="">
+      <%= f.select :body_type, Car::BODY_TYPES, { selected: @car.try(:body_type) || 'Sedanas'}, { class: "form-control" }  %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="name" class="cols-sm-2 control-label">Darbinis tūris, cm<sup>3</sup></label>
+    <div class="">
+      <%= f.text_field :cubic_capacity, placeholder: "Darbinis tūris", class: "form-control" %>
+    </div>
+  </div>
+
+    <div class="form-group">
+    <label for="name" class="cols-sm-2 control-label">Galia, KW</label>
+    <div class="">
+      <%= f.text_field :power, placeholder: "Galia", class: "form-control" %>
+    </div>
+  </div>
+
+    <div class="form-group">
+    <label for="name" class="cols-sm-2 control-label">Kuro tipas</label>
+    <div class="">
+      <%= f.select :fuel, Car::FUEL_TYPES, { selected: @car.try(:fuel) || 'Benzinas'}, { class: "form-control" }  %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="name" class="cols-sm-2 control-label">Spalva</label>
+    <div class="">
+      <%= f.text_field :color, placeholder: "Spalva", class: "form-control" %>
+    </div>
+  </div>
+
+   <div class="form-group">
+    <label for="name" class="cols-sm-2 control-label">TA Data</label>
+    <div class="">
+      <%= f.text_field :ta_date, placeholder: "TA data", class: "form-control" %>
+    </div>
+  </div>
+
+
+  <div class="actions">
+    <%= f.submit 'Saugoti', class: "btn btn-success btn-lg btn-block login-button" %>
+  </div>
+<% end %>
+
+  <br />
+
+          <%= link_to 'Atgal', clients_path, class: "btn btn-primary" %> 
+      </div>
+    </div>
+  </div>
+</div>
