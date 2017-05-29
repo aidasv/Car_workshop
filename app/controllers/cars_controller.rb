@@ -18,18 +18,29 @@ class CarsController < ApplicationController
   end
 
   def create
-    @car = Car.new(make: params[:make],
-                      model: params[:model],
-                      production_year: params[:production_year],
-                      license_plate: params[:license_plate],
-                      vin_code: params[:vin_code],
-                      body_type: params[:body_type],
-                      cubic_capacity: params[:cubic_capacity],
-                      power: params[:power],
-                      fuel: params[:fuel],
-                      color: params[:color],
-                      ta_date: params[:ta_date])
-    @car.save
-    redirect to clients_path
+    @car = Car.new(car_params)
+    @car.client_id = params[:client_id]
+    if @car.save
+      redirect_to clients_path
+    else
+      render :new
+    end
+  end
+
+
+  private
+
+  def car_params
+    params.require(:car).permit(:make,
+                                :model,
+                                :production_year,
+                                :license_plate,
+                                :vin_code,
+                                :body_type,
+                                :cubic_capacity,
+                                :power,
+                                :fuel,
+                                :color,
+                                :ta_date)
   end
 end
