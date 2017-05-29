@@ -2,7 +2,10 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'clients#index', as: 'clients'
 
-  get 'clients/:id', to: 'clients#show', as: 'show_client'
+  get 'clients/new', to: 'clients#new', as: 'new_client'
+  post '/', to: 'clients#create'
+  get 'clients/:id', to: 'clients#show', as: 'show_client'  
+  post 'clients', to: 'client#create'
   get 'clients/:client_id/cars', to: 'cars#client_cars', as: 'cars'
   get 'clients/:client_id/cars/new', to: 'cars#new', as: 'new_car'
   post 'clients/:client_id/cars', to: 'cars#create'

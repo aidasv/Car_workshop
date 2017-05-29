@@ -1,0 +1,64 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-5 center-block">
+      <div class="panel-heading">
+        <div class="panel-title text-center">
+          <h1 class="title">Naujas klientas</h1>
+          <hr />
+        </div>
+        
+
+
+        <%= form_for(@client) do |f| %>
+        <% if @client.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@client.errors.count, "error") %> prohibited this client from being saved:</h2>
+
+          <ul>
+            <% @client.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+        <% end %>
+
+        <div class="form-group">
+          <label for="name" class="cols-sm-2 control-label">Vardas</label>
+          <div class="">
+            <%= f.text_field :name, placeholder: "Vardas", class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="name" class="cols-sm-2 control-label">Pavardė</label>
+          <div class="">
+            <%= f.text_field :surname, placeholder: "Pavardė", class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email" class="cols-sm-2 control-label">El. paštas</label>
+          <div class="">
+            <%= f.text_field :email, placeholder: "El. paštas", class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="name" class="cols-sm-2 control-label">Telefono nr.</label>
+          <div class="">
+            <%= f.text_field :phone, placeholder: "Telefono nr.", class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="actions">
+          <%= f.submit 'Saugoti', class: "btn btn-success btn-lg btn-block login-button" %>
+        </div>
+        <% end %>
+
+        <br />
+
+        <%= link_to 'Atgal', clients_path, class: "btn btn-primary" %> 
+      </div>
+    </div>
+  </div>
+</div>
