@@ -19,9 +19,10 @@ end
   name = %w(Jonas Petras Antanas Jurgis Pranas Gedgaudas Andrius Ramunas).sample
   surname = %w(Karbauskis Tapinas Renovacijus Kontautas Teslagalvijus).sample
   email = "#{name}.#{surname}#{rand(10000..99999)}@example.com"
-  phone = "#{rand(100000..999999)}"
+  phone = "+37067#{rand(100000..999999)}"
+  password = "123456"
 
-  Client.create(name: name, surname: surname, email: email, phone: phone)
+  Client.create(name: name, surname: surname, email: email, phone: phone, password: password)
 end
 
 Client.all.each do |client|
