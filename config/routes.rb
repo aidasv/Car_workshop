@@ -2,6 +2,10 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'clients#index', as: 'clients'
 
+  get 'login', to: 'sessions#new', as: 'login'
+  post 'login', to: 'sessions#create'
+  delete 'logout', to: 'sessions#destroy'
+
   get 'clients/new', to: 'clients#new', as: 'new_client'
   post '/', to: 'clients#create'
   get 'clients/:id', to: 'clients#show', as: 'show_client'  
