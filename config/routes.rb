@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   get 'clients/:client_id/cars/:car_id/visits/:visit_id/services/:id', to: 'services#show', as: 'show_service'
   get 'workers', to: 'workers#index'
   get 'workers/:id', to:'workers#show', as: 'show_worker'
+  get 'client/:encrypt', to:'clients#pavyko'
 
 
 end

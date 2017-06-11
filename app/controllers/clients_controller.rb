@@ -21,7 +21,10 @@ class ClientsController < ApplicationController
       render :new
     end
   end
-
+  
+  def pavyko
+    @linkas = URLcrypt.decrypt(params[:encrypt])
+  end
   private
 
   def client_params
@@ -30,4 +33,6 @@ class ClientsController < ApplicationController
                                    :email,
                                    :phone)
   end
+
+
 end
